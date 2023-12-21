@@ -3,7 +3,7 @@ from datetime import datetime
 import plotly.express as px
 import locale
 
-locale.setlocale(locale.LC_MONETARY, 'pt_BR')
+locale.setlocale(locale.LC_ALL, '')
 
 df_data = st.session_state["data"]
 df_data2 = st.session_state["data2"]
