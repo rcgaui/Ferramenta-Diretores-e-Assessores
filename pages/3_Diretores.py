@@ -3,8 +3,6 @@ from datetime import datetime
 import plotly.express as px
 import locale
 
-locale.setlocale(locale.LC_ALL, '')
-
 df_data = st.session_state["data"]
 df_data2 = st.session_state["data2"]
 df_data3 = st.session_state["data3"]
@@ -45,10 +43,10 @@ if senha:
             media_valor_por_aplicacao_coe = total_aplicado_coe/qtd_aplicacoes_coe
             comissao_total_coe = df_data2[df_data2['Nome Assessor'] == assessor]['Comissão fixa'].sum()
             comissao_media_coe = comissao_total_coe/qtd_aplicacoes_coe
-            total_aplicado_coe = locale.currency(total_aplicado_coe, grouping=True)
-            media_valor_por_aplicacao_coe = locale.currency(media_valor_por_aplicacao_coe, grouping=True)
-            comissao_total_coe = locale.currency(comissao_total_coe, grouping=True)
-            comissao_media_coe = locale.currency(comissao_media_coe, grouping=True)
+            total_aplicado_coe = f'R${total_aplicado_coe:.2f}'
+            media_valor_por_aplicacao_coe = f'R${media_valor_por_aplicacao_coe:.2f}'
+            comissao_total_coe = f'R${comissao_total_coe:.2f}'
+            comissao_media_coe = f'R${comissao_media_coe:.2f}'
 
             col1, col2 = st.columns(2)
             col1.markdown(f'**Número de clientes:** {qtd_clientes_coe}')
@@ -73,10 +71,10 @@ if senha:
             media_valor_por_aplicacao_of = total_aplicado_of/qtd_aplicacoes_of
             comissao_total_of = df_data3[df_data3['Nome Assessor'] == assessor]['Comissão fixa'].sum()
             comissao_media_of = comissao_total_of/qtd_aplicacoes_of
-            total_aplicado_of = locale.currency(total_aplicado_of, grouping=True)
-            media_valor_por_aplicacao_of = locale.currency(media_valor_por_aplicacao_of, grouping=True)
-            comissao_total_of = locale.currency(comissao_total_of, grouping=True)
-            comissao_media_of = locale.currency(comissao_media_of, grouping=True)
+            total_aplicado_of = f'R${total_aplicado_of:.2f}'
+            media_valor_por_aplicacao_of = f'R${media_valor_por_aplicacao_of:.2f}'
+            comissao_total_of = f'R${comissao_total_of:.2f}'
+            comissao_media_of = f'R${comissao_media_of:.2f}'
 
             col1, col2 = st.columns(2)
             col1.markdown(f'**Número de clientes:** {qtd_clientes_of}')
@@ -101,10 +99,10 @@ if senha:
             media_valor_por_aplicacao_ca = total_aplicado_ca/qtd_aplicacoes_ca
             comissao_total_ca = df_data4[df_data4['Nome Assessor'] == assessor]['Comissão fixa'].sum()
             comissao_media_ca = comissao_total_ca/qtd_aplicacoes_ca
-            total_aplicado_ca = locale.currency(total_aplicado_ca, grouping=True)
-            media_valor_por_aplicacao_ca = locale.currency(media_valor_por_aplicacao_ca, grouping=True)
-            comissao_total_ca = locale.currency(comissao_total_ca, grouping=True)
-            comissao_media_ca = locale.currency(comissao_media_ca, grouping=True)
+            total_aplicado_ca = f'R${total_aplicado_ca:.2f}'
+            media_valor_por_aplicacao_ca = f'R${media_valor_por_aplicacao_ca:.2f}'
+            comissao_total_ca = f'R${comissao_total_ca:.2f}'
+            comissao_media_ca = f'R${comissao_media_ca:.2f}'
 
             col1, col2 = st.columns(2)
             col1.markdown(f'**Número de clientes:** {qtd_clientes_ca}')
@@ -140,7 +138,7 @@ if senha:
 
                 df_assessor_data5['Comissao Total'] = df_assessor_data5[['Comissao COE', 'Comissao Ofertas', 'Comissao Carteiras']].sum(axis=1)
                 comissao_total = df_assessor_data5['Comissao Total'].iloc[0]
-                comissao_total = locale.currency(comissao_total, grouping=True)
+                comissao_total = f'R${comissao_total:.2f}'
 
                 values = [
                     df_assessor_data5['Comissao COE'].iloc[0],
