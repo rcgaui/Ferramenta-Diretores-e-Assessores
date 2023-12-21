@@ -41,10 +41,10 @@ if senha:
             st.markdown(f"**NET:** R${row['NET']:.2f}")
             if col3.button('Projeções de receita', key=f'button_{row["Cod Cliente"]}_{index}'):
                 valores = [
-                    locale.currency(row['Projeção COE'], grouping=True),
-                    locale.currency(row['Projeção Ofertas'], grouping=True),
-                    locale.currency(row['Projeção Carteiras'], grouping=True),
-                    locale.currency(row['Projeção Renda Fixa'], grouping=True)
+                    f'R${row['Projeção COE']:.2f}',
+                    f'R${row['Projeção Ofertas']:.2f}',
+                    f'R${row['Projeção Carteiras']:.2f}',
+                    f'R${row['Projeção Renda Fixa']:.2f}'
                 ]
 
                 color_discrete_map = {'COE': 'red', 'Oferta Pública': 'blue', 'Carteira Automatizada': 'orange', 'Renda Fixa': 'green'}
