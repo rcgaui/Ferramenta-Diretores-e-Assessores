@@ -2,7 +2,7 @@ import streamlit as st
 import locale
 import plotly.express as px
 
-locale.setlocale(locale.LC_MONETARY, 'pt_BR')
+locale.setlocale(locale.LC_ALL, '')
 
 df_data = st.session_state["data"]
 
