@@ -38,7 +38,7 @@ if senha:
             st.markdown(f"**Ativo:** {row['Ativo']}")
             st.markdown(f"**Emissor:** {row['Emissor']}")
             st.markdown(f"**Risco:** {row['RISCO']}")
-            st.markdown(f"**NET:** R${row['NET']:,.2f}")
+            st.markdown(f"**NET:** R${row['NET']:.2f}")
             if col3.button('Projeções de receita', key=f'button_{row["Cod Cliente"]}_{index}'):
                 valores = [
                     locale.currency(row['Projeção COE'], grouping=True),
@@ -53,7 +53,7 @@ if senha:
                     x=['COE (Risco alto)', 'Oferta Pública (Risco médio)', 'Carteira Automatizada (Risco médio)', 'Renda Fixa (Risco baixo)'],
                     y=[row['Projeção COE'], row['Projeção Ofertas'], row['Projeção Carteiras'], row['Projeção Renda Fixa']],
                     labels={'y': 'Valor', 'x': 'Tipo de Projeção'},
-                    title=f'Projeções da comissão esperada com a alocação de R${row["NET"]:,.2f}',
+                    title=f'Projeções da comissão esperada com a alocação de R${row["NET"]:.2f}',
                     height=400,
                     color=['COE', 'Oferta Pública', 'Carteira Automatizada', 'Renda Fixa'],
                     text= valores,
